@@ -14,7 +14,7 @@ namespace Modelos
         public string Endereco { get; set; }
         public DateTime DataInicio { get; set; }
         public bool Status { get; set; }
-        Servico servico;
+        
 
               
 

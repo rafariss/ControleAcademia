@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Modelos
 {
-    class Servico : Aluno
+   public class Servico 
     {
-        public int ValorID { get; set; }
+        public int ServicoID { get; set; }
         public string NomeServico { get; set; }
         public float Valor { get; set; }
         public int ContadorDias { get; set; }

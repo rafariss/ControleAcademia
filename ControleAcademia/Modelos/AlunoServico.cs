@@ -12,6 +12,8 @@ namespace Modelos
         public  virtual Aluno _Aluno { get; set; }
         public virtual Servico _Servico { get; set; }
         public DateTime DataPlano { get; set; }
+        public int AlunoID { get; set; }
+        public int ServicoID { get; set; }
 
 
 

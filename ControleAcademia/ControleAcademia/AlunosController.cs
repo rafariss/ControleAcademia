@@ -23,12 +23,13 @@ namespace ControleAcademia
 
         public Aluno BuscarPorID(int id)
         {
-            throw new NotImplementedException();
+            return contexto.Alunos.Find(id);
         }
 
         public void Editar(Aluno entity)
         {
-            throw new NotImplementedException();
+            contexto.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
         }
 
         public void Excluir(int id)
@@ -38,12 +39,17 @@ namespace ControleAcademia
 
         public IList<Aluno> ListarPorNome(string nome)
         {
-            throw new NotImplementedException();
+            var AlunoPorNome = from alu in contexto.Alunos
+                                where alu.Nome ==  nome
+                                select alu;
+
+            return AlunoPorNome.ToList();
         }
 
         public IList<Aluno> ListarTodos()
         {
-            throw new NotImplementedException();
+            return contexto.Alunos.ToList();
+
         }
     }
 }

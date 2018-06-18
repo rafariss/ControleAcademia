@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelos
 {
-    class AlunoServico
+   public class AlunoServico
     {
         public int AlunoServicoID { get; set; }
         public  virtual Aluno _Aluno { get; set; }

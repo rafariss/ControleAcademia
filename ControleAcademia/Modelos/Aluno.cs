@@ -16,6 +16,12 @@ namespace Modelos
         public bool Status { get; set; }
         
 
+
+
+
+
+        
+
               
 
         //falta entender como fazer o vencimento

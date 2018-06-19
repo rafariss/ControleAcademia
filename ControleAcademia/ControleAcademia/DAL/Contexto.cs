@@ -11,7 +11,7 @@ namespace Controllers.DAL
     class Contexto : DbContext
     {
 
-        public Contexto() : base("ConexãoDB") { }
+        public Contexto() : base("conexaoDB") { }
 
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Servico> Servicos { get; set; }

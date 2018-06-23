@@ -5,11 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="frmAlunos" Height="300" Width="300">
-    <Grid>
-        <Label x:Name="lblNome" Content="Nome" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="66,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnGravar" Content="Gravar" HorizontalAlignment="Left" Margin="189,228,0,0" VerticalAlignment="Top" Width="75" Click="btnGravar_Click"/>
+        Title="frmAlunos" Height="474.657" Width="398.63">
+    <Grid Initialized="Grid_Initialized">
+        <Label x:Name="lblNome" Content="Nome:" HorizontalAlignment="Left" Margin="1,71,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="74,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208"/>
+        <Button x:Name="btnGravar" Content="Gravar" HorizontalAlignment="Left" Margin="295,403,0,0" VerticalAlignment="Top" Width="75" Click="btnGravar_Click"/>
+        <Label x:Name="lblMatricula" Content="Matricula:" HorizontalAlignment="Left" Margin="1,42,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMatricula" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Margin="74,42,0,0"/>
+        <Label x:Name="lblData" Content="Data Inicial" HorizontalAlignment="Left" Margin="1,145,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblEndereco" Content="Endereço:" HorizontalAlignment="Left" Margin="1,109,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtEndereco" HorizontalAlignment="Left" Height="23" Margin="74,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="286"/>
+        <Label Content="Cadastro de Alunos" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="165"/>
+        <DatePicker x:Name="dtCalendario" HorizontalAlignment="Left" Margin="74,146,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="listAluno" HorizontalAlignment="Left" Height="203" Margin="17,187,0,0" VerticalAlignment="Top" Width="353" SelectionChanged="listAluno_SelectionChanged"/>
 
     </Grid>
 </Window>

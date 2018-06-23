@@ -12,7 +12,7 @@ namespace Modelos
         public string Nome { get; set; }
         public int Matricula { get; set; }
         public string Endereco { get; set; }
-        //public DateTime DataInicio { get; set; }
+        public DateTime DataInicio { get; set; }
         public bool Status { get; set; }
         
 

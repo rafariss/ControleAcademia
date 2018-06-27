@@ -25,6 +25,7 @@ namespace WpfApp
         public frmAlunos()
         {
             InitializeComponent();
+
         }
 
         private void btnGravar_Click(object sender, RoutedEventArgs e)
@@ -49,24 +50,72 @@ namespace WpfApp
             listAluno.ItemsSource = alunosController.ListarTodos();
         }
 
-        private void listAluno_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void  listAluno_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             AlunosController alunosController = new AlunosController();
             Aluno a = (Aluno)listAluno.SelectedItem;
+            
+                        
+            btnGravar.Visibility = Visibility.Hidden;
+            Preenche(a);
+            
+            
+
+
+
+            //MessageBox.Show("o q tem no a" + a.AlunoID);
         }
+
+        
 
         public void Preenche(Aluno a) {
 
-            //txtNome.Text = a.g
+            txtId.Text = Convert.ToString(a.AlunoID);
+            txtId.IsEnabled = false;
+            txtNome.Text = a.Nome;
+            txtEndereco.Text = a.Endereco;
+            txtMatricula.Text = Convert.ToString(a.Matricula);
+            dtCalendario.SelectedDate = a.DataInicio;
+            
+            }
 
 
 
-        }
+
 
         private void Grid_Initialized(object sender, EventArgs e)
         {
             AlunosController alunosController = new AlunosController();
             ListaAluno(alunosController);
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+
+            
+            AlunosController alunosController = new AlunosController();            
+            Aluno aluno = new Aluno();
+            aluno.AlunoID = Convert.ToInt32(txtId.Text);
+            aluno.Matricula = Convert.ToInt32(txtMatricula.Text);
+            aluno.Nome = txtNome.Text;
+            aluno.Endereco = txtEndereco.Text;
+            aluno.DataInicio = dtCalendario.SelectedDate.Value;
+            alunosController.Editar(aluno);
+            MessageBox.Show("Editado com Sucesso");
+            btnGravar.Visibility = Visibility.Visible;
+            txtId.Text = "";
+            txtNome.Text = "";
+            txtEndereco.Text = "";
+            txtMatricula.Text = "";
+            
+
+
+
+
+
+
+
+
         }
     }
 }

@@ -25,6 +25,9 @@ namespace WpfApp
         public frmAlunos()
         {
             InitializeComponent();
+            
+            btnExcluir.Visibility = Visibility.Hidden;
+            btnEditar.Visibility = Visibility.Hidden;
 
         }
 
@@ -54,15 +57,7 @@ namespace WpfApp
         {
             AlunosController alunosController = new AlunosController();
             Aluno a = (Aluno)listAluno.SelectedItem;
-            
-                        
-            btnGravar.Visibility = Visibility.Hidden;
             Preenche(a);
-            
-            
-
-
-
             //MessageBox.Show("o q tem no a" + a.AlunoID);
         }
 
@@ -76,8 +71,11 @@ namespace WpfApp
             txtEndereco.Text = a.Endereco;
             txtMatricula.Text = Convert.ToString(a.Matricula);
             dtCalendario.SelectedDate = a.DataInicio;
-            
-            }
+            btnGravar.Visibility = Visibility.Hidden;
+            btnExcluir.Visibility = Visibility.Visible;
+            btnEditar.Visibility = Visibility.Visible;
+
+        }
 
 
 
@@ -108,14 +106,21 @@ namespace WpfApp
             txtEndereco.Text = "";
             txtMatricula.Text = "";
             
+            
+        }
 
-
-
-
-
-
-
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            AlunosController alunosController = new AlunosController();
+            
+            var idExclusao = Convert.ToInt32(txtId.Text);
+            alunosController.Excluir(idExclusao);
+            MessageBox.Show("Exclusão efetuada com sucesso");
+            
+            
 
         }
+
+
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ControleAcademia;
+using Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +31,12 @@ namespace WpfApp
         {
             frmAlunos cadAlunos = new frmAlunos();
             cadAlunos.ShowDialog();
+        }
+
+        private void btnServico_Click(object sender, RoutedEventArgs e)
+        {
+            frmServico cadServico = new frmServico();
+            cadServico.ShowDialog();
         }
     }
 }

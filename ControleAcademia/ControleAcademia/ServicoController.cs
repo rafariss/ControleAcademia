@@ -9,24 +9,22 @@ using System.Threading.Tasks;
 
 namespace ControleAcademia
 {
-    public class AlunosController : IBaseController<Aluno>
+    public class ServicoController : IBaseController<Servico>
     {
-
         private Contexto contexto = new Contexto();
 
-
-        public void Adicionar(Aluno entity)
+        public void Adicionar(Servico entity)
         {
-            contexto.Alunos.Add(entity);
+            contexto.Servicos.Add(entity);
             contexto.SaveChanges();
         }
 
-        public Aluno BuscarPorID(int id)
+        public Servico BuscarPorID(int id)
         {
-            return contexto.Alunos.Find(id);
+            return contexto.Servicos.Find(id);
         }
 
-        public void Editar(Aluno entity)
+        public void Editar(Servico entity)
         {
             contexto.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
@@ -34,33 +32,35 @@ namespace ControleAcademia
 
         public void Excluir(int id)
         {
-            Aluno alu = BuscarPorID(id);
+            Servico serv = BuscarPorID(id);
 
-            if (alu != null)
+            if (serv != null)
             {
                 //1a forma
                 //contexto.Entry(usu).State = System.Data.Entity.EntityState.Deleted;
 
                 // 2a forma
-                contexto.Alunos.Remove(alu);
+                contexto.Servicos.Remove(serv);
                 contexto.SaveChanges();
-                
+
             }
         }
 
-        public IList<Aluno> ListarPorNome(string nome)
+        public IList<Servico> ListarPorNome(string nome)
         {
-            var AlunoPorNome = from alu in contexto.Alunos
-                                where alu.Nome ==  nome
-                                select alu;
+            var ServicoPorNome = from serv in contexto.Servicos
+                               where serv.NomeServico == nome
+                               select serv;
 
-            return AlunoPorNome.ToList();
+            return ServicoPorNome.ToList();
         }
 
-        public IList<Aluno> ListarTodos()
+        public IList<Servico> ListarTodos()
         {
-            return contexto.Alunos.ToList();
+            return contexto.Servicos.ToList();
 
         }
+
+
     }
 }

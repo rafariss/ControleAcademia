@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
         Title="frmAlunos" Height="474.657" Width="398.63">
-    <Grid Initialized="Grid_Initialized">
+    <Grid x:Name="TelaAlunos" Initialized="Grid_Initialized">
         <Label x:Name="lblNome" Content="Nome:" HorizontalAlignment="Left" Margin="1,71,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="74,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208"/>
         <Button x:Name="btnGravar" Content="Gravar" HorizontalAlignment="Left" Margin="295,403,0,0" VerticalAlignment="Top" Width="75" Click="btnGravar_Click"/>
@@ -20,6 +20,7 @@
         <DataGrid x:Name="listAluno" HorizontalAlignment="Left" Height="203" Margin="17,187,0,0" VerticalAlignment="Top" Width="353" SelectionChanged="listAluno_SelectionChanged"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="207,403,0,0" VerticalAlignment="Top" Width="75" Click="btnEditar_Click"/>
         <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="22" Margin="333,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="271,149,0,0" VerticalAlignment="Top" Width="75" IsCancel="True" Click="btnExcluir_Click"/>
 
     </Grid>
 </Window>

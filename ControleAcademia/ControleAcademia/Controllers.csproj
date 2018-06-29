@@ -51,6 +51,7 @@
     <Compile Include="Base\IBaseController.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicoController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -13,5 +13,6 @@
 
         </Grid.ColumnDefinitions>
         <Button x:Name="CadastroAluno" Content="Cadastrar Aluno" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Width="97" Click="CadastroAluno_Click" Height="22"/>
+        <Button x:Name="btnServico" Content="Cadastrar Serviço" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Width="97" IsDefault="True" Height="24" Click="btnServico_Click"/>
     </Grid>
 </Window>

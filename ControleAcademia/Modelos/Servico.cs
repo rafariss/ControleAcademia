@@ -11,9 +11,13 @@ namespace Modelos
         public int ServicoID { get; set; }
         public string NomeServico { get; set; }
         public float Valor { get; set; }
+        public string Categoria { get; set; }
         public int ContadorDias { get; set; }
 
+       
+        public ICollection<Aluno> Aluno { get; set; }
 
+}
 
-    }
+   
 }

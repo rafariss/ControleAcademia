@@ -65,6 +65,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="frmAlunoServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frmServico.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -79,6 +83,9 @@
     </Compile>
     <Compile Include="frmAlunos.xaml.cs">
       <DependentUpon>frmAlunos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlunoServico.xaml.cs">
+      <DependentUpon>frmAlunoServico.xaml</DependentUpon>
     </Compile>
     <Compile Include="frmServico.xaml.cs">
       <DependentUpon>frmServico.xaml</DependentUpon>

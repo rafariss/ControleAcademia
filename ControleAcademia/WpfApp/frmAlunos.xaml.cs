@@ -22,6 +22,10 @@ namespace WpfApp
     /// </summary>
     public partial class frmAlunos : Window
     {
+
+        AlunosController alunosController = new AlunosController();
+       
+
         public frmAlunos()
         {
             InitializeComponent();
@@ -39,12 +43,19 @@ namespace WpfApp
             aluno.Matricula = Convert.ToInt32(txtMatricula.Text);
             aluno.Nome = txtNome.Text;
             aluno.Endereco = txtEndereco.Text;
-            aluno.DataInicio = dtCalendario.SelectedDate.Value;
-            alunosController.Adicionar(aluno);
-            MessageBox.Show("Cadastro efetuado com sucesso");
+            //aluno._Servico = 
+            try
+            {
+                aluno.DataInicio = dtCalendario.SelectedDate.Value;           
+                alunosController.Adicionar(aluno);
+                MessageBox.Show("Cadastro efetuado com sucesso");
+                ListaAluno(alunosController);
+            }
+            catch
+            {
 
-            ListaAluno(alunosController);
-
+                MessageBox.Show("Preencha a data");
+            }
         }
 
 
@@ -55,31 +66,48 @@ namespace WpfApp
 
         private void  listAluno_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             AlunosController alunosController = new AlunosController();
-            Aluno a = (Aluno)listAluno.SelectedItem;
-            Preenche(a);
+            try
+            {
+                Aluno a = (Aluno)listAluno.SelectedItem;
+                Preenche(a);
+            }
+            catch
+            {
+                MessageBox.Show("Sem alunos para seleção");
+
+            }
             //MessageBox.Show("o q tem no a" + a.AlunoID);
         }
 
         
 
         public void Preenche(Aluno a) {
+            
 
-            txtId.Text = Convert.ToString(a.AlunoID);
-            txtId.IsEnabled = false;
-            txtNome.Text = a.Nome;
-            txtEndereco.Text = a.Endereco;
-            txtMatricula.Text = Convert.ToString(a.Matricula);
-            dtCalendario.SelectedDate = a.DataInicio;
-            btnGravar.Visibility = Visibility.Hidden;
-            btnExcluir.Visibility = Visibility.Visible;
-            btnEditar.Visibility = Visibility.Visible;
+             if(a == null)
+            {
+                
+                MessageBox.Show("Não Foi possivel encontrar sua busca");
+                CarregaLista(a);
 
+            }
+            
+                txtId.Text = Convert.ToString(a.AlunoID);
+                txtId.IsEnabled = false;
+                txtNome.Text = a.Nome;
+                txtEndereco.Text = a.Endereco;
+                txtMatricula.Text = Convert.ToString(a.Matricula);
+                dtCalendario.SelectedDate = a.DataInicio;
+                btnGravar.Visibility = Visibility.Hidden;
+                btnExcluir.Visibility = Visibility.Visible;
+                btnEditar.Visibility = Visibility.Visible;
+           
+            
+          
         }
-
-
-
-
+        
 
         private void Grid_Initialized(object sender, EventArgs e)
         {
@@ -111,16 +139,40 @@ namespace WpfApp
 
         private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
-            AlunosController alunosController = new AlunosController();
             
             var idExclusao = Convert.ToInt32(txtId.Text);
             alunosController.Excluir(idExclusao);
-            MessageBox.Show("Exclusão efetuada com sucesso");
-            
-            
+            MessageBox.Show("Exclusão efetuada com sucesso");           
 
         }
 
+     
+        private void btnBuscarServ_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                AlunosController alunosController = new AlunosController();
+                Aluno aluno = new Aluno();
+                listAluno.ItemsSource = new List<Aluno>();
+                listAluno.ItemsSource = alunosController.BuscarPorNome(txtConsulta.Text);
+            }
+            catch
+            {
 
+                MessageBox.Show("Aluno não encontrado");
+            }
+        }
+
+        private void CarregaLista(Aluno a)
+        {
+            AlunosController alunosController = new AlunosController();
+            Aluno aluno = new Aluno();
+            listAluno.ItemsSource = new List<Aluno>();
+            listAluno.ItemsSource = alunosController.BuscarPorNome(txtConsulta.Text);
+
+
+        }
+
+        
     }
 }

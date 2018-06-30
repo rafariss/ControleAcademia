@@ -26,6 +26,13 @@ namespace ControleAcademia
             return contexto.Alunos.Find(id);
         }
 
+        public ICollection<Aluno>
+        BuscarPorNome(string nome)
+        {
+
+            return contexto.Alunos.Where(aluno => aluno.Nome.Contains(nome)).ToList();
+        }
+
         public void Editar(Aluno entity)
         {
             contexto.Entry(entity).State = System.Data.Entity.EntityState.Modified;

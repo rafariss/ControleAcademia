@@ -14,15 +14,8 @@ namespace Modelos
         public string Endereco { get; set; }
         public DateTime DataInicio { get; set; }
         public bool Status { get; set; }
-        
 
-
-
-
-
-        
-
-              
+        public ICollection<Servico> _Servico { get; set; }
 
         //falta entender como fazer o vencimento
 

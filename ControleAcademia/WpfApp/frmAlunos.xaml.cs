@@ -20,30 +20,44 @@ namespace WpfApp
     /// <summary>
     /// Lógica interna para frmAlunos.xaml
     /// </summary>
-    public partial class frmAlunos : Window
+    public partial class frmAlunos : Window 
     {
 
         AlunosController alunosController = new AlunosController();
-       
+        Aluno aluno = new Aluno();
+
+        
 
         public frmAlunos()
         {
             InitializeComponent();
-            
+           // txtIDServico.Text = aluno.IDServico.ToString();
             btnExcluir.Visibility = Visibility.Hidden;
             btnEditar.Visibility = Visibility.Hidden;
+            
 
         }
+        
 
         private void btnGravar_Click(object sender, RoutedEventArgs e)
         {
 
             AlunosController alunosController = new AlunosController();
             Aluno aluno = new Aluno();
+            ServicoController servico = new ServicoController();
+            Servico ser = new Servico();
             aluno.Matricula = Convert.ToInt32(txtMatricula.Text);
             aluno.Nome = txtNome.Text;
             aluno.Endereco = txtEndereco.Text;
-            //aluno._Servico = 
+            txtIDServico.Text = aluno.IDServico.ToString();
+
+
+
+            // var serv = cbServico.SelectedIndex.;
+            //ser.ServicoID = serv.; 
+
+            //aluno._Servico.Insert(serv, ser);
+            //aluno._Servico.Add(ser);
             try
             {
                 aluno.DataInicio = dtCalendario.SelectedDate.Value;           
@@ -99,10 +113,12 @@ namespace WpfApp
                 txtNome.Text = a.Nome;
                 txtEndereco.Text = a.Endereco;
                 txtMatricula.Text = Convert.ToString(a.Matricula);
+                txtIDServico.Text = Convert.ToString(a.IDServico);
                 dtCalendario.SelectedDate = a.DataInicio;
                 btnGravar.Visibility = Visibility.Hidden;
                 btnExcluir.Visibility = Visibility.Visible;
                 btnEditar.Visibility = Visibility.Visible;
+                
            
             
           
@@ -173,6 +189,23 @@ namespace WpfApp
 
         }
 
-        
+        private void cbServico_Loaded(object sender, RoutedEventArgs e)
+        {
+            ServicoController servico = new ServicoController();
+            //Servico ser= new Servico();
+            //cbServico.ItemsSource = servico.ListarTodos();
+
+        }
+
+        private void cbServico_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void btnAddServico_Click(object sender, RoutedEventArgs e)
+        {
+            frmAlunoServico servicoAluno = new frmAlunoServico();
+            servicoAluno.ShowDialog();
+        }
     }
 }

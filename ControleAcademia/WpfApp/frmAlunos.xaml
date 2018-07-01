@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
-        xmlns:ControleAcademia="clr-namespace:ControleAcademia;assembly=ControleAcademia" x:Class="WpfApp.frmAlunos"
+        xmlns:ControleAcademia="clr-namespace:ControleAcademia;assembly=ControleAcademia" xmlns:Modelos="clr-namespace:Modelos;assembly=Modelos" x:Class="WpfApp.frmAlunos"
         mc:Ignorable="d"
         Title="frmAlunos" Height="504.794" Width="443.835">
     <Grid x:Name="TelaAlunos" Initialized="Grid_Initialized" Margin="10,0,0,-5">
@@ -29,7 +29,8 @@
         <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Right" Margin="0,212,56,0" VerticalAlignment="Top" Width="75" Click="btnBuscarServ_Click"/>
         <TextBox x:Name="txtConsulta" HorizontalAlignment="Right" Height="23" Margin="0,212,136,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="273"/>
         <Label x:Name="lblServicoAluno" Content="Serviço: " HorizontalAlignment="Left" Margin="1,176,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbServico" HorizontalAlignment="Left" Margin="74,180,0,0" VerticalAlignment="Top" Width="138"/>
+        <Button x:Name="btnAddServico" Content="Serviço" HorizontalAlignment="Left" Margin="28,160,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btnAddServico_Click"/>
+        <TextBox x:Name="txtIDServico" HorizontalAlignment="Left" Height="23" Margin="74,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
 
     </Grid>
 </Window>

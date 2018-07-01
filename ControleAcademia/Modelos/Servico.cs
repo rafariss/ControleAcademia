@@ -15,7 +15,7 @@ namespace Modelos
         public int ContadorDias { get; set; }
 
        
-        public ICollection<Aluno> Aluno { get; set; }
+        //public ICollection<Aluno> Aluno { get; set; }
 
 }
 

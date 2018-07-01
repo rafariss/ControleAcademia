@@ -23,6 +23,7 @@ namespace Controllers.DAL
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Servico> Servicos { get; set; }
         public DbSet<AlunoServico> AlunoServico { get; set; }
+       // public ICollection<Servico> _Servico { get; set; }
 
 
 

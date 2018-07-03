@@ -22,9 +22,12 @@ namespace WpfApp
     /// </summary>
     public partial class frmAlunoServico : Window
     {
-        public frmAlunoServico()
+       // private AlunoServico _alunoServico;
+        
+        public frmAlunoServico(AlunoServico aserv)
         {
             InitializeComponent();
+           // _alunoServico = aserv;
         }
 
         private void listaServicoAluno_Initialized(object sender, EventArgs e)
@@ -37,6 +40,7 @@ namespace WpfApp
         {
             ServicoController servicoController = new ServicoController();
             Servico servico = new Servico();
+            //var recebeu = servico.ServicoID;
                         
         }
 
@@ -48,6 +52,8 @@ namespace WpfApp
             servico = (Servico)listaServicoAluno.SelectedItem;
             var ser = servico.ServicoID;
             aluno.IDServico = ser;
+            
+            
             this.Close();
             
         }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <Grid Margin="0,0,-36,9" HorizontalAlignment="Left" Width="553">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="9*"/>
             <ColumnDefinition Width="38*"/>
@@ -14,5 +14,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="CadastroAluno" Content="Cadastrar Aluno" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Width="97" Click="CadastroAluno_Click" Height="22"/>
         <Button x:Name="btnServico" Content="Cadastrar Serviço" HorizontalAlignment="Left" Margin="0,63,0,0" VerticalAlignment="Top" Width="97" IsDefault="True" Height="24" Click="btnServico_Click"/>
+        <Image x:Name="imgAcademia" Grid.Column="1" HorizontalAlignment="Left" Height="274" Margin="10,36,0,0" VerticalAlignment="Top" Width="385" Source="C:\Users\RAFAEL\Pictures\academia.jpg"/>
+        <Label Content="Controle de Academia" Grid.Column="1" HorizontalAlignment="Left" Margin="145,5,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

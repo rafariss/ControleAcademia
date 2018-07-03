@@ -38,5 +38,11 @@ namespace WpfApp
             frmServico cadServico = new frmServico();
             cadServico.ShowDialog();
         }
+
+       // private void Carregar()
+        //{
+          //  AlunoServico aaa = new AlunoServico();
+            //frmAlunoServico form = new frmAlunoServico(aaa);
+        //}
     }
 }

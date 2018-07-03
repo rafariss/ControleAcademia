@@ -14,7 +14,7 @@
         <TextBox x:Name="txtServico" HorizontalAlignment="Left" Height="23" Margin="105,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
         <TextBox x:Name="txtValor" HorizontalAlignment="Left" Height="23" Margin="105,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
         <TextBox x:Name="txtCategoria" HorizontalAlignment="Left" Height="23" Margin="105,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
-        <DataGrid x:Name="listServico" HorizontalAlignment="Left" Height="100" Margin="10,183,0,0" VerticalAlignment="Top" Width="333" Initialized="listServico_Initialized" SelectionChanged="listServico_SelectionChanged"/>
+        <DataGrid x:Name="listServico" IsReadOnly="True" HorizontalAlignment="Left" Height="100" Margin="10,183,0,0" VerticalAlignment="Top" Width="333" Initialized="listServico_Initialized" SelectionChanged="listServico_SelectionChanged"/>
         <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="23" Margin="307,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36"/>
         <Button x:Name="btnGravar" Content="Gravar" HorizontalAlignment="Left" Margin="268,288,0,0" VerticalAlignment="Top" Width="75" Click="btnGravar_Click"/>
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="179,288,0,0" VerticalAlignment="Top" Width="75" Click="btnEditar_Click"/>

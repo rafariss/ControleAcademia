@@ -25,8 +25,7 @@ namespace WpfApp
 
         AlunosController alunosController = new AlunosController();
         Aluno aluno = new Aluno();
-
-        
+        private int iDServico;
 
         public frmAlunos()
         {
@@ -37,39 +36,60 @@ namespace WpfApp
             
 
         }
-        
+
+        public frmAlunos(int iDServico)
+        {
+            this.iDServico = iDServico;
+        }
 
         private void btnGravar_Click(object sender, RoutedEventArgs e)
         {
 
             AlunosController alunosController = new AlunosController();
             Aluno aluno = new Aluno();
-            ServicoController servico = new ServicoController();
-            Servico ser = new Servico();
-            aluno.Matricula = Convert.ToInt32(txtMatricula.Text);
-            aluno.Nome = txtNome.Text;
-            aluno.Endereco = txtEndereco.Text;
-            txtIDServico.Text = aluno.IDServico.ToString();
 
 
+            //ServicoController servico = new ServicoController();
+            // Servico ser = new Servico();
 
+            if(aluno is null)
+            {
+
+                MessageBox.Show("Não foi possivel efetuar o cadastro");
+
+            }
+            try
+            {
+                aluno.Matricula = Convert.ToInt32(txtMatricula.Text);
+                aluno.Nome = txtNome.Text;
+                aluno.Endereco = txtEndereco.Text;
+                aluno.IDServico = ((Servico)cbServico.SelectedItem).ServicoID;
+
+                txtIDServico.Text = aluno.IDServico.ToString();
+                try
+                {
+                    aluno.DataInicio = dtCalendario.SelectedDate.Value;
+                    alunosController.Adicionar(aluno);
+                    MessageBox.Show("Cadastro efetuado com sucesso");
+                    ListaAluno(alunosController);
+                }
+                catch
+                {
+
+                    MessageBox.Show("Preencha a data");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Revise os dados para cadastro");
+
+            }
             // var serv = cbServico.SelectedIndex.;
             //ser.ServicoID = serv.; 
 
             //aluno._Servico.Insert(serv, ser);
             //aluno._Servico.Add(ser);
-            try
-            {
-                aluno.DataInicio = dtCalendario.SelectedDate.Value;           
-                alunosController.Adicionar(aluno);
-                MessageBox.Show("Cadastro efetuado com sucesso");
-                ListaAluno(alunosController);
-            }
-            catch
-            {
-
-                MessageBox.Show("Preencha a data");
-            }
+          
         }
 
 
@@ -165,10 +185,17 @@ namespace WpfApp
      
         private void btnBuscarServ_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            
                 AlunosController alunosController = new AlunosController();
                 Aluno aluno = new Aluno();
+            if(aluno is null)
+            {
+
+                MessageBox.Show("Aluno não encontrado");
+            }
+
+            try
+            {
                 listAluno.ItemsSource = new List<Aluno>();
                 listAluno.ItemsSource = alunosController.BuscarPorNome(txtConsulta.Text);
             }
@@ -191,9 +218,8 @@ namespace WpfApp
 
         private void cbServico_Loaded(object sender, RoutedEventArgs e)
         {
-            ServicoController servico = new ServicoController();
-            //Servico ser= new Servico();
-            //cbServico.ItemsSource = servico.ListarTodos();
+            ServicoController servicoController = new ServicoController();
+            cbServico.ItemsSource = servicoController.ListarTodos();
 
         }
 
@@ -206,6 +232,16 @@ namespace WpfApp
         {
             frmAlunoServico servicoAluno = new frmAlunoServico();
             servicoAluno.ShowDialog();
+        }
+
+        private void TelaAlunos_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
+        private void frmAlunos1_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
